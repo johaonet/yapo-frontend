@@ -1,0 +1,29 @@
+@import '~src/styles.scss';
+
+.search-card {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.result-grid {
+    @include display-grid;
+    @include grid-template-columns(repeat(auto-fit, minmax(250px, 1fr)));
+    margin: 32px 0;
+}
+
+@supports (display: grid) {
+    .result-grid {
+        grid-gap: 12px;
+    }
+}
+
+@supports (display: -ms-grid) {
+    .result-grid {
+        margin: 12px;
+    }
+}
+
+/* Ovverride Angular Material stylings */
+::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}

@@ -1,0 +1,32 @@
+<article class="card">
+    <div class="card__item--details">
+        
+
+        <section class="card__item--content">
+            <header class="card__item--title">
+                <a
+                    *ngIf="result.albumName"
+                    class="link"
+                >
+                    {{ result.themeName }}
+                </a>
+                <audio controls>
+                    <source src="{{ result.previewUrl }}" type="audio/ogg">
+                    <source src="{{ result.previewUrl }}" type="audio/mp4">
+                </audio>
+            </header>
+
+            <div *ngIf="result.releaseDate" class="card__item--small-notes">
+                ({{ result.releaseDate | date: 'yyyy' }})
+            </div>
+ 
+
+            <div class="card__item--price">
+                <div *ngIf="result.price" style="text-align: center;" class="card__item--price">
+                   Precio {{ result.price.currency }} {{ result.price.value }}
+                </div>
+            </div>
+ 
+        </section>
+    </div>
+</article>

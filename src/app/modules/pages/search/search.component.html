@@ -1,0 +1,32 @@
+<h1 class="heading">Buscar</h1>
+
+<mat-card class="search-card">
+    <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Buscar</mat-label>
+            <input
+                matInput
+                placeholder="Search for something..."
+                [formControl]="searchControl"
+            >
+        </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div class="flex-spacer"></div>
+        <button
+            mat-raised-button
+            color="primary"
+            [disabled]="searchControl.invalid"
+            (click)="Search(searchControl.value)"
+        >
+            Buscar
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<section class="result-grid">
+    <ng-container *ngFor="let result of songs">
+        <certua-card [result]="result"></certua-card>
+    </ng-container>
+</section>
